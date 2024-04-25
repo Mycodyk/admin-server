@@ -46,7 +46,7 @@ const sendAllGames = (req, res) => {
   
 
 const deleteGame = async (req, res) => {
-    const games = await readData(".data/games.json");
+    const games = await readData("./data/data-game.json");
     if(!games) {
         res.status(400);
         res.send({
@@ -63,7 +63,7 @@ const deleteGame = async (req, res) => {
 
     req.games.splice(index, 1);
 
-    await writeData("./data/games.json", req.games);
+    await writeData("./data/data-game.json", req.games);
 
     res.send({
         games: req.games,

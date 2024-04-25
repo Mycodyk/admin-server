@@ -1,7 +1,7 @@
-const { readData, writeData } = require("../utils/data");
+const { readData, writeData } = require("../utils/utils/data");
 
 const getAllGames = async (req, res, next) => {
-  const games = await readData("./data/games.json");
+  const games = await readData("./data/data-game.json");
   if (!games) {
     res.status(400);
     res.send({
@@ -45,7 +45,7 @@ const updateGamesArray = (req, res, next) => {
 };
 
 const updateGamesFile = async (req, res, next) => {
-  await writeData("./data/games.json", req.games);
+  await writeData("./data/data-game.json", req.games);
   next();
 };
 
